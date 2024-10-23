@@ -108,38 +108,36 @@
                 /*
                     Block comment in JavaScript
                 */
-                console.log(email)
+                console.log(email);
 
                 //You can vote in this election if you are 18 and above
-                if(age >= 18){
-                    console.log("This user can vote because he is " {age})
-                }
-                else{
-                    console.log("You are too young")
-                }
-
-                ans = add()
-
-                console.log(ans)
-
-                function add(){     //Functions in javascript
-                        var a = age
-                        var b = 10
-                        if(true){
-                            var age = 50        //when var is used the age for the 1st and 2nd age are both  are 50
-                            let age = 50        //This just works within the if scope and the result of the outside will be 20
-                          console.log(age)  
-                        }
-                        return a+b
+                if (age >= 18) {
+                    console.log("This user can vote because he is " + age);  // Use concatenation
+                } else {
+                    console.log("You are too young");
                 }
 
+                // Corrected ans variable declaration
+                let ans = add();
 
-                console.log(age)
-                ans = add()
+                console.log(ans);
 
-                console.log(ans)        //How to print something in Javascript
+                function add() {  // Functions in JavaScript
+                    let a = age;
+                    let b = 10;
 
+                    if (true) {
+                        let localAge = 50;  // Use block-scoped let
+                        console.log(localAge);  // This will print 50
+                    }
 
+                    return a + b;
+                }
+
+                console.log(age);
+                ans = add();
+
+                console.log(ans);  // How to print something in JavaScript
             </script>
         </div>      
     </body>
