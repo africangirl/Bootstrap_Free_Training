@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px;
+    background-color: #19a54f; /* Change background to Indigo */
+    background-image: -moz-repeating-linear-gradient(Helvetica);
+}
+
+a {
+    text-decoration: solid;
+    text-decoration-color: rgba(255, 215, 0, 0.973); /* Gold color for the underline */
+    text-decoration-line: underline;
+    color: #FFD700; /* Change link color to Gold */
+}
+
+h1, ul {
+    text-decoration: double;
+    -moz-text-decoration-color: #FFD700;
+    text-decoration-color: #87b323; /* Change decoration color to OrangeRed */
+    color: #100550; /* Change text color to FloralWhite */
+    list-style-type: square;
+}
+
+h1 {
+    text-decoration: double;
+    text-decoration-color: #87b323; /* Change decoration color to OrangeRed */
+    color: #100550; /* Change text color to FloralWhite */ 
+}
+
+p {
+    text-decoration-style: wavy;
+    color: #b8d60b; /* Change paragraph text color to SpringGreen */
+}
+
+h1 {
+    text-decoration: solid;
+    text-overflow: var(-moz-repeating-linear-gradient);
+    text-decoration-line: underline;
+    text-decoration-color: #b2db70; /* Change text decoration color to MediumPurple */
+}
+
+.create-button {
+    background-color: #008080; /* Change button background to Teal */
+    color: black; /* White text */
+    font-size: larger;
+    font-weight: 600;
+    padding: 10px 15px; /* Add some padding */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    
+    
+}
+
+.create-button:hover {
+    background-color: #20B2AA; /* Change hover background to LightSeaGreen */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    color: white;
+}
+
+label {
+    font-weight: 10px;
+    box-sizing: border-box;
+    border-width: 100px;
+    color: black;
+
+}
+
+.container {
+    max-width: 600px;
+    padding: 20px;
+    background-color: white
+    border-radius: 8px;
+}
+

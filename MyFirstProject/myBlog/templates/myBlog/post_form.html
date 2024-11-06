@@ -1,0 +1,14 @@
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'myBlog/style.css' %}" type="text/css">
+</head>
+
+<div class="container" style='background-image: url("{% static "myBlog/hmm.jpg" %}"); background-size: cover; background-position: center;background-repeat: no-repeat; padding: 20px; border-radius: 10px;'>
+    <h1>Create/Edit Post</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Render form fields -->
+        <button type="submit">Save</button>  <!-- Submit button -->
+    </form>
+    <a href="{% url 'post_list' %} " class="create-button">Cancel</a>  <!-- Link to return to the post list -->
+</div>

@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{% static 'myBlog/style.css' %}" type="text/css">
+</head>
+<body>
+    <h1>Sign Up</h1>
+    <div class="container">
+        <form action="{% url 'signup' %}" method="post">      <!--The action section directs the page to the signup pass after the login form has been filled -->
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- Render form fields -->
+            <button type="submit">Sign Up</button>  <!-- Submit button -->
+        </form>
+        <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+    </div>
+</body>
+</html>

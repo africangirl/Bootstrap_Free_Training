@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="stylesheet" href="{% static 'myBlog/style.css' %}" type="text/css">
+    </head>
+    <h1>Login</h1>
+    
+    <div class="container">
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <div>  <!--For the login the form cannot be created using the UserCreationForm, so you have to create a form fields manually -->
+                <label for="id_username">Username: </label>
+                <input type="text" name="username" id="id_username" required>
+            </div>
+
+            <div>
+                <label for="password">Password: </label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <button type="submit">LogIn</button>  <!-- Submit button -->
+        </form>
+        <p>Don't have an account? <a href="{% url 'signup' %}">Signup</a></p>
+    </div>
+</html>

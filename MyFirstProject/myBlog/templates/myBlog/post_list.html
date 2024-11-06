@@ -1,0 +1,17 @@
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'myBlog/style.css' %}" type="text/css">
+</head>
+<h1>Blog posts</h1>
+
+<ul>
+    {% for post in posts %}
+    <li>
+        <a href="{% url 'post_details' post.id %}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'post_create' %}" class="create-button">Create New Post</a> <br>
+<br> </br>
+
