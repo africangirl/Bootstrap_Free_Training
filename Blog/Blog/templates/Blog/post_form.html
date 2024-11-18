@@ -1,0 +1,36 @@
+{% load static %}  <!-- Add this line at the top of your template file -->
+
+<head>
+    <link rel="stylesheet" href="{% static 'Blog/style.css' %}" type="text/css">
+</head>
+
+<h1>Create/Edit Post</h1>
+
+<body style="background-image: url('{% static 'Blog/two.jpg' %}'); background-size:cover; background-position: center; padding: 20px; border-radius: 8px;">    
+    <div class="container">
+        <form method="post" >
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Save</button>
+        </form>
+    </div>
+
+    <a href="{% url 'post_list' %}" class="create-button">Cancel</a>
+</body>
+
+
+
+
+<!--
+<h1>Create/Edit Post</h1>  # Display the heading "Create/Edit Post"
+
+<form method="POST">  # Start a form with POST method to send data securely
+    {% csrf_token %}  # Include CSRF token for security, protecting against cross-site request forgery attacks
+    {{ form.as_p }}  # Render each form field as paragraphs (default styling for Django forms)
+    <button type="submit">Save</button>  # Create a button to submit the form
+</form>  # Close the form tag
+
+<a href="{% url 'post_list' %}">Cancel</a>  # Link to navigate back to the post list page, labeled "Cancel"
+-->
+
+<!-- The CSRF (Cross-Site Request Forgery) token is a security feature in Django used to protect forms from unauthorized submissions. -->

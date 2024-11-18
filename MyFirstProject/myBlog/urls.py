@@ -14,4 +14,7 @@ urlpatterns = [
     #path('post/<int:post_id>/edit/', views.post_edit, name='post_edit'),  # URL for editing a post
 
     path('create/', views.post_create, name='post_create'),
+
+    path('profile/', views.profile, name='profile'),
+    path('profile/edit/', views.edit_profile, name='edit_profile'),
 ]

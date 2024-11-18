@@ -1,0 +1,21 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Signup</title>
+        <link rel="stylesheet" href="{% static 'Blog/style.css' %}" type="text/css">
+    </head>
+    <h1>Signup</h1>
+
+    <div class="container">
+        <form action="{% url 'post_list' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Signup</button>
+        </form>
+         <p>Already Has An Account? <a href="{% url 'login' %}" style="color: blue; text-decoration-color: black;">Login</a></p>
+    </div>
+</html>

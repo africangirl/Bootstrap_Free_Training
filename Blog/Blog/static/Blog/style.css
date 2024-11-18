@@ -1,0 +1,82 @@
+body {
+    font-family:Arial, Helvetica, sans-serif;
+    margin: 20px;
+    background-color: blueviolet;
+    background-image: -moz-repeating-linear-gradient(Helvetica);
+}
+
+a {
+    text-decoration: solid;
+    text-decoration-color: rgba(3, 9, 70, 0.973);
+    text-decoration-line: underline;
+    color: rgb(116, 230, 11);
+}
+
+ul {
+    text-decoration: double;
+    text-decoration-color: blue;
+    color: gold;
+    list-style-type: square;
+}
+
+p {
+    text-decoration-style: wavy;
+    color: black;
+}
+
+h1 {
+    text-decoration: solid;
+    text-overflow: var(-moz-repeating-linear-gradient);
+    text-decoration-line: underline;
+    text-decoration-color: mediumorchid;
+    color: gold;
+}
+
+f
+orm {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    color: white;
+}
+
+.create-button {
+    background-color: #1900ff;  /* Initial blue background */
+    color: rgb(214, 60, 60);  /* White text */
+    padding: 10px 15px;  /* Add some padding */
+    text-decoration: none;  /* Remove underline */
+    border-radius: 5px;  /* Rounded corners */
+    font-size: large;
+    font-weight: bolder;
+    padding: 10px 15px;
+    border-radius: 5px;
+
+}
+
+.create-button:hover {
+    background-color: #1f021a;
+}
+
+label {
+    font-size: medium;
+    font-weight: bold;
+    box-sizing: border-box;
+    color: rgb(22, 1, 1);
+    
+}
+
+.container {
+    max-width: 600px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+button {
+    font-weight: bold;
+    background-color:  #1900ff;
+    color: rgb(214, 60, 60);
+    border-color: #1900ff;
+    border-radius: 5px;
+
+}

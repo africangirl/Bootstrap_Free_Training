@@ -10,7 +10,7 @@
     </head>
     <h1>Login</h1>
     
-    <div class="container">
+    <div class="container"style="background-image: url('{% static 'myBlog/OIP.jpg' %}'); background-size: cover; background-position: center; background-repeat: no-repeat; padding: 20px; border-radius: 10px;">
         <form action="{% url 'login' %}" method="post">
             {% csrf_token %}
             <div>  <!--For the login the form cannot be created using the UserCreationForm, so you have to create a form fields manually -->

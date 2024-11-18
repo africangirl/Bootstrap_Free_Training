@@ -1,25 +1,36 @@
 from django.shortcuts import render, get_list_or_404, redirect, get_object_or_404
-from .forms import PostForm
-from .models import Post
+from .forms import PostForm,ProfileForm
+from .models import Post,Profile
+from django.core.exceptions import PermissionDenied
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
+from django.core.exceptions import PermissionDenied
+
 
 
 def post_list(request):
     posts = Post.objects.all()   #Get all the object
-    return render(request, 'myBlog/post_list.html', {'posts': posts})
+    can_add_post = request.user.has_perm("myBlog.add_post")
+    return render(request, 'myBlog/post_list.html', {'posts': posts, 'can_add_post':can_add_post})
 
 def post_detail(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     return render(request, 'myBlog/post_detail.html', {'post':post})
 
+
+ 
 @login_required
+# @permission_required("myBlog.add_post", raise_exception=True)  #you can use this instead of using the if statement that contains the PermissionDenied 
 def post_create(request):
+    if not request.user.has_perm('myBlog.add_post'):        #Checks if user has permission to add post
+        raise PermissionDenied      #Raises an exception if the user doesn't have the perm to add post
     if request.method =='POST':
         form = PostForm(request.POST)
         if form.is_valid():
-            form.save()
+            post = form.save(commit=False)     #When saved it will not go straight into the database and it as a
+            post.author = request.user      #Assigns the currently logged-in user as the author of the post.
+            post.save() #Saves the post to the db
             return redirect('post_list')
     else:
         form = PostForm()   
@@ -46,7 +57,22 @@ def signup(request):
             return redirect('post_list')  #Redirect the user after login
     else:
         form = UserCreationForm()   #Creates the form
+
     return render(request, 'registration/signup.html', {'form': form})
+
+@login_required
+def profile(request):
+    return render(request, 'myBlog/profile.html')
+
+def edit_profile(request):
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=request.user.Profile)    #Gets the form from the saved filed file from the instances of what we are updating
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    else:
+        form = ProfileForm(instance=request.user.profile)
+        return render(request, 'myBlog/edit_profile.html' ,{'form':form})
 
 
 

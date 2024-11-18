@@ -62,7 +62,7 @@ form {
 }
 
 label {
-    font-weight: 10px;
+    font-weight: bolder;
     box-sizing: border-box;
     border-width: 100px;
     color: black;
@@ -72,7 +72,7 @@ label {
 .container {
     max-width: 600px;
     padding: 20px;
-    background-color: white
+    background-color: white;
     border-radius: 8px;
 }
 

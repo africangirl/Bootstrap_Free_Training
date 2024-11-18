@@ -12,6 +12,15 @@
     {% endfor %}
 </ul>
 
+{% if can_add_post %}
 <a href="{% url 'post_create' %}" class="create-button">Create New Post</a> <br>
+{% endif %}
+
 <br> </br>
+
+
+<form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>
 

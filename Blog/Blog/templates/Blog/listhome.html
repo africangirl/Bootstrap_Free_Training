@@ -1,0 +1,43 @@
+{% load static %}  <!-- Add this line at the top of your template file -->
+
+<head>
+    <link rel="stylesheet" href="{% static 'Blog/style.css' %}" type="text/css">
+</head>
+<h1>Blog Post</h1>
+
+
+<body style="background-image: url('{% static 'Blog/two.jpg' %}'), background-size:cover, background-position: center, padding: 20px, border-radius: 8px ">
+    <ul>
+        {% for post in posts %}
+        <li>
+            <a href="{% url 'post_details' post.id %}"> {{ post.title }} </a>
+        </li>
+        {% endfor %}
+    </ul>
+    
+    <a href="{% url 'post_create' %}" class="create-button">Create New Post</a>
+    
+</body>
+
+
+
+
+<!--
+{% load static %}  #Load Django's static files template tag for referencing static assets like CSS
+
+<head>
+    #Link to a CSS stylesheet located in the static folder within 'myBlog' app 
+    <link rel="stylesheet" href="{% static 'myBlog/style.css' %}" type="text/css">
+</head>
+
+<h1>Blog posts</h1>  #Display the heading "Blog posts" 
+
+<ul>
+    {% for post in posts %}  # Begin loop to iterate over each post in the posts list passed from the view 
+    <li>
+        # Create a hyperlink for each post title that navigates to the post's detail page using its ID
+        <a href="{% url 'post_details' post.id %}">{{ post.title }}</a>  
+    </li>
+    {% endfor %}  # End of the loop 
+</ul>  
+-->
